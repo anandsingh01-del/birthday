@@ -468,6 +468,9 @@ h1 {
 
 
 
+
+
+
 @media (max-width: 768px) {
 
   html, body {
@@ -555,4 +558,39 @@ h1 {
     right: 12px;
   }
 
+}
+
+/* ================== MOBILE FIX ================== */
+@media (max-width: 480px) {
+
+  #ageCounter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .ageBox {
+    min-width: unset;
+    width: 100%;
+    padding: 10px 6px;
+  }
+
+  .ageNum {
+    font-size: 22px;
+  }
+
+  #ageIntro {
+    margin-top: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .content {
+    padding-bottom: 40px;
+  }
 }

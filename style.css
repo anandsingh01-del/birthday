@@ -469,6 +469,40 @@ h1 {
 
 
 
+@media (max-width: 480px) {
 
+  /* Keep the glass card perfectly centered */
+  #glass-card {
+    width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 🔧 Rebuild the age counter layout only on mobile */
+  #ageCounter {
+    position: relative;
+    left: 0;
+    transform: none;
+
+    width: 94vw;
+    margin: 16px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+
+  .ageBox {
+    min-width: 0;
+    padding: 12px 6px;
+  }
+
+  /* Pull moon inside screen */
+  .moon {
+    right: 12px !important;
+    width: 90px;
+    height: 90px;
+  }
+}
 
 

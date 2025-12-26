@@ -594,3 +594,43 @@ h1 {
     padding-bottom: 40px;
   }
 }
+
+/* ====== HARD MOBILE FIX ====== */
+@media (max-width: 480px) {
+
+  /* Keep everything inside screen */
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  /* Fix glass card overflow */
+  #glass-card {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+  }
+
+  /* Fix age counter overflow */
+  #ageCounter {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .ageBox {
+    min-width: 60px;
+    flex: 1 1 28%;
+  }
+
+  /* Pull moon back inside screen */
+  .moon {
+    right: 6px !important;
+    width: 80px !important;
+    height: 80px !important;
+  }
+}

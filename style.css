@@ -1,0 +1,558 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0b164f, #020616);
+  overflow: hidden;
+  font-family: 'Pacifico', cursive;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.moon {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  width: 140px;
+  height: 140px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(255,255,255,.9);
+  animation: moonGlow 4s ease-in-out infinite;
+  z-index: 4;
+}
+
+
+.content {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+h1 {
+  font-size: 64px;
+  margin: 0;
+  opacity: 0;
+  animation: floatText 3s ease-in-out infinite;
+}
+
+p {
+  font-size: 26px;
+  margin-top: 10px;
+  opacity: 0;
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: .8;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .3; }
+  to { opacity: 1; }
+}
+
+.heart {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: hotpink;
+  transform: rotate(45deg);
+  animation: float 10s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: hotpink;
+  border-radius: 50%;
+}
+
+.heart::before { left: -7px; }
+.heart::after { top: -7px; }
+
+@keyframes float {
+  from { transform: translateY(100vh) rotate(45deg); }
+  to { transform: translateY(-120vh) rotate(45deg); }
+}
+
+/* Glow pulse for heart cluster */
+.heart {
+  filter: drop-shadow(0 0 6px rgba(255,105,180,.7));
+}
+
+/* Title shimmer */
+h1 {
+  text-shadow: 0 0 15px rgba(255,255,255,.6);
+}
+
+/* Soft background drift */
+.scene::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.04), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,.03), transparent 40%);
+  animation: drift 40s linear infinite;
+}
+
+@keyframes drift {
+  from { transform: translate(0,0); }
+  to { transform: translate(-200px, -200px); }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(
+    270deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 30%,
+    rgba(255,255,255,0.8) 60%,
+    rgba(255,255,255,1) 100%
+  );
+  animation: shoot 1.5s linear forwards;
+  z-index: 4;
+  pointer-events: none;
+}
+
+
+@keyframes shoot {
+  from {
+    transform: translate(100vw, -40px) rotate(var(--angle));
+    opacity: 1;
+  }
+  to {
+    transform: translate(-200px, 200px) rotate(var(--angle));
+    opacity: 0;
+  }
+}
+
+#startOverlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  backdrop-filter: blur(3px);
+  cursor:pointer;
+}
+
+#startOverlay div{
+  color:white;
+  font-family:'Pacifico',cursive;
+  font-size:26px;
+  padding:18px 30px;
+  border-radius:40px;
+  background:rgba(0,0,0,.5);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.fade-in {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  animation: reveal 2s forwards;
+  z-index: 9999;
+}
+
+@keyframes reveal {
+  to { opacity: 0; pointer-events: none; }
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle 0.6s ease-out forwards;
+}
+
+@keyframes sparkle {
+  to {
+    transform: translate(var(--dx), var(--dy));
+    opacity: 0;
+  }
+}
+
+#glass-card {
+  position: relative;
+  padding: 28px 38px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+
+  display: inline-block;
+
+  /* 🔒 Lock size so typing never stretches it */
+  width: 760px;
+  min-height: 180px;
+
+  /* keep it exactly where it was */
+  margin-top: -80px;
+}
+
+#glass-card h1 {
+  margin: 0;
+}
+
+#glass-card p {
+  margin-top: 10px;
+}
+
+
+#balloonLayer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.balloon{
+  position: absolute;
+  bottom: -80px;
+  font-size: 46px;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: floatUp 14s linear forwards;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.4));
+}
+
+@keyframes floatUp{
+  to{
+    transform: translateY(-120vh);
+  }
+}
+
+.balloonPop{
+  animation: pop 0.4s ease-out forwards;
+}
+
+@keyframes pop{
+  to{
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+#wishPopup{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* ⬇️ Move it just under the birthday card */
+  top: calc(50% + 190px);
+
+  padding: 12px 22px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  color: #ffd6f5;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 0 0 10px rgba(255,182,255,0.8);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 12;
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeUp{
+  from{ opacity:0; transform:translate(-50%,10px); }
+  to{ opacity:1; transform:translate(-50%,0); }
+}
+
+/* ===================== AGE COUNTER ===================== */
+
+#ageCounter {
+  position: fixed;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  z-index: 8;
+}
+
+/* -------- Card Base -------- */
+
+.ageBox {
+  min-width: 86px;
+  padding: 14px 12px;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.04)
+  );
+
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.35);
+
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.35);
+
+  text-align: center;
+  color: white;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* -------- Soft Neon Halo -------- */
+
+.ageBox::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,160,210,0.55),
+    rgba(255,255,255,0.25),
+    rgba(255,160,210,0.55)
+  );
+
+  filter: blur(6px);
+  opacity: 0.45;
+  z-index: -1;
+}
+
+/* -------- Inner Glass Reflection -------- */
+
+.ageBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255,255,255,0.18),
+    transparent 45%
+  );
+
+  pointer-events: none;
+}
+
+/* -------- Hover Lift -------- */
+
+.ageBox:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 18px 45px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+/* -------- Numbers -------- */
+
+.ageNum {
+  font-family: 'Montserrat Alternates', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+
+  color: #ffd6f5;
+
+  text-shadow:
+    0 0 8px rgba(255,120,190,0.7),
+    0 0 14px rgba(255,120,190,0.5);
+
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* -------- Labels -------- */
+
+.ageBox span {
+  display: block;
+  margin-top: 2px;
+
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* -------- Glow Pulse -------- */
+
+@keyframes glowPulse {
+  0%   { text-shadow: 0 0 8px rgba(255,120,190,0.6); }
+  50%  { text-shadow: 0 0 18px rgba(255,120,190,1); }
+  100% { text-shadow: 0 0 8px rgba(255,120,190,0.6); }
+}
+
+/* -------- Seconds Tick -------- */
+
+.pulse {
+  transition: transform 0.15s cubic-bezier(.4,0,.2,1);
+}
+
+.pulse.beat {
+  transform: scale(1.14);
+}
+
+/* Wish popup near balloon */
+#wishPopup {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  padding: 12px 22px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  color: #ffd6f5;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 0 0 10px rgba(255,182,255,0.8);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 20;
+  animation: fadeUp 0.5s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Blur effect when wish is active */
+#glass-card.blurred {
+  filter: blur(6px) brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+#ageIntro {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18%;
+
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: #ffd6f5;
+  text-shadow: 0 0 10px rgba(255,120,190,0.6);
+  opacity: 0.85;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.stars, .hearts {
+  transition: transform 0.12s linear;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    padding: 7vh 5vw;
+  }
+
+  /* Kill desktop positioning */
+  .content,
+  #ageCounter,
+  #ageIntro {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #glass-card {
+    width: calc(100vw - 24px);
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  h1 { font-size: 40px; }
+  p  { font-size: 17px; }
+
+  #ageIntro {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  #ageCounter {
+    position: relative;
+    width: 100%;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  #ageCounter {
+    position: relative;
+    width: 100%;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .ageNum { font-size: 20px; }
+  .ageBox span { font-size: 10px; }
+
+  /* Moon fix */
+  .moon {
+    width: 96px;
+    height: 96px;
+    top: 20px;
+    right: 12px;
+  }
+
+}

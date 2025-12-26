@@ -634,3 +634,25 @@ h1 {
     height: 80px !important;
   }
 }
+
+@media (max-width: 480px) {
+
+  .scene {
+    padding-top: 6vh !important;
+    padding-bottom: 5vh !important;
+  }
+
+  #glass-card {
+    margin-top: 10px !important;
+  }
+
+  #ageIntro {
+    margin-top: 14px !important;
+  }
+
+  #ageCounter {
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+  }
+
+}

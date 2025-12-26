@@ -505,4 +505,24 @@ h1 {
   }
 }
 
+@media (max-width: 480px) {
+
+  /* Lock card height so typing doesn't push layout */
+  #glass-card {
+    min-height: 240px;
+    max-height: 240px;
+    overflow: hidden;
+  }
+
+  /* Tame the message text for small screens */
+  #glass-card p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* Slightly reduce title so it fits clean */
+  #glass-card h1 {
+    font-size: 46px;
+  }
+}
 

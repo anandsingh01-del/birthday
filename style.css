@@ -473,14 +473,25 @@ h1 {
 
 @media (max-width: 480px) {
 
-  /* Keep the glass card perfectly centered */
+  /* ===== Glass Card (stable while typing) ===== */
   #glass-card {
     width: 92vw;
-    margin-left: auto;
-    margin-right: auto;
+    min-height: 240px;
+    max-height: 240px;
+    margin: 0 auto;
+    overflow: hidden;
   }
 
-  /* 🔧 Rebuild the age counter layout only on mobile */
+  #glass-card h1 {
+    font-size: 46px;
+  }
+
+  #glass-card p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* ===== Age Counter: always centered, single row ===== */
   #ageCounter {
     position: relative;
     left: 0;
@@ -499,31 +510,10 @@ h1 {
     padding: 12px 6px;
   }
 
-  /* Pull moon inside screen */
+  /* ===== Moon fully inside screen ===== */
   .moon {
     right: 12px !important;
     width: 90px;
     height: 90px;
   }
-
-  /* Lock card height so typing doesn't push layout */
-  #glass-card {
-    min-height: 240px;
-    max-height: 240px;
-    overflow: hidden;
-  }
-
-  /* Tame the message text for small screens */
-  #glass-card p {
-    font-size: 18px;
-    line-height: 1.4;
-  }
-
-  /* Slightly reduce title so it fits clean */
-  #glass-card h1 {
-    font-size: 46px;
-  }
 }
-
-
-

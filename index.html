@@ -80,3 +80,86 @@
 </div> <!-- end of .viewport -->
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday</title>
+
+<!-- ✨ Existing font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- ✨ New stylish fonts for age counter -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Montserrat+Alternates:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="viewport">
+
+<div class="fade-in"></div>
+
+<!-- Background music -->
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="scene">
+  <div class="moon"></div>
+  <div class="stars"></div>
+  <div class="hearts"></div>
+
+  <div class="content">
+    <div id="glass-card">
+      <h1 id="title"></h1>
+      <p id="message"></p>
+    </div>
+
+    <div id="ageIntro">
+  You’ve been making the world brighter for
+</div>
+
+    <!-- ⏳ Age Counter -->
+    <div id="ageCounter">
+      <div class="ageBox">
+        <div id="years" class="ageNum">0</div>
+        <span>Years</span>
+      </div>
+      <div class="ageBox">
+        <div id="days" class="ageNum">0</div>
+        <span>Days</span>
+      </div>
+      <div class="ageBox">
+        <div id="hours" class="ageNum">0</div>
+        <span>Hours</span>
+      </div>
+      <div class="ageBox">
+        <div id="minutes" class="ageNum">0</div>
+        <span>Minutes</span>
+      </div>
+      <div class="ageBox pulse">
+        <div id="seconds" class="ageNum">0</div>
+        <span>Seconds</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tap to start -->
+<div id="startOverlay">
+  <div>Tap anywhere to begin 🎵</div>
+</div>
+
+<!-- Floating balloons -->
+<div id="balloonLayer"></div>
+
+<script src="script.js"></script>
+
+<div id="candle">
+  <div id="flame"></div>
+</div>
+</div> <!-- end of .viewport -->
+</body>
+</html>

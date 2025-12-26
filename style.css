@@ -473,6 +473,14 @@ h1 {
 
 @media (max-width: 480px) {
 
+  /* 🧱 Reset absolute layout on mobile */
+  .content {
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+    padding-top: 140px; /* pushes card closer to moon */
+  }
+
   /* ===== Glass Card (stable while typing) ===== */
   #glass-card {
     width: 92vw;
@@ -496,10 +504,8 @@ h1 {
     position: relative;
     left: 0;
     transform: none;
-
     width: 94vw;
-    margin: 16px auto 0;
-
+    margin: 18px auto 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 8px;

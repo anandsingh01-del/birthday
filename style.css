@@ -656,3 +656,36 @@ h1 {
   }
 
 }
+
+@media (max-width: 480px) {
+
+  /* 1️⃣ Center & contain the birthday card */
+  #glass-card {
+    max-width: calc(100vw - 28px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 2️⃣ Force age counter into ONE centered row */
+  #ageCounter {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    width: calc(100vw - 20px);
+    margin: 14px auto 0;
+    padding: 0;
+  }
+
+  .ageBox {
+    width: 100%;
+  }
+
+  /* 3️⃣ Pull the moon fully inside screen */
+  .moon {
+    right: 10px !important;
+    top: 14px !important;
+    max-width: 88px;
+    max-height: 88px;
+  }
+
+}

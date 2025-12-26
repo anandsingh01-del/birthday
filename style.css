@@ -469,6 +469,8 @@ h1 {
 
 
 
+
+
 @media (max-width: 480px) {
 
   /* Keep the glass card perfectly centered */
@@ -503,9 +505,6 @@ h1 {
     width: 90px;
     height: 90px;
   }
-}
-
-@media (max-width: 480px) {
 
   /* Lock card height so typing doesn't push layout */
   #glass-card {
@@ -525,4 +524,6 @@ h1 {
     font-size: 46px;
   }
 }
+
+
 

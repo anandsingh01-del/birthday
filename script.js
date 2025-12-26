@@ -95,11 +95,15 @@ function startScene() {
 
 // ========== MUSIC + OVERLAY ==========
 overlay.addEventListener("click", () => {
+  function startApp() {
   if (started) return;
   started = true;
 
-  music.volume = 0;
-  music.play();
+  // Force audio unlock for mobile
+  music.muted = true;
+  music.play().then(() => {
+    music.muted = false;
+  }).catch(() => {});
 
   let v = 0;
   const fade = setInterval(() => {
@@ -109,9 +113,17 @@ overlay.addEventListener("click", () => {
   }, 50);
 
   overlay.style.opacity = 0;
+  overlay.style.pointerEvents = "none";
+
   setTimeout(() => overlay.remove(), 400);
 
   startScene();
+}
+
+// Mobile-safe listeners
+overlay.addEventListener("pointerdown", startApp, { once: true });
+overlay.addEventListener("touchstart", startApp, { once: true });
+overlay.addEventListener("click", startApp, { once: true });
 });
 
 // ========== HEART POP ==========

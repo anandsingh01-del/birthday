@@ -468,6 +468,87 @@ h1 {
 
 
 
+@media (max-width: 768px) {
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    padding: 7vh 5vw;
+  }
+
+  /* Kill desktop positioning */
+  .content,
+  #ageCounter,
+  #ageIntro {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #glass-card {
+    width: 100%;
+    max-width: 92vw;
+    margin: 0 auto;
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  h1 { font-size: 40px; }
+  p  { font-size: 17px; }
+
+  #ageIntro {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  #ageCounter {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .ageBox {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 6px;
+  }
+
+  .ageNum { font-size: 20px; }
+  .ageBox span { font-size: 10px; }
+
+  /* Moon fix */
+  .moon {
+    width: 90px;
+    height: 90px;
+    top: 16px;
+    right: 16px;
+  }
+}
+
+
+
+
 
 
 

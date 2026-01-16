@@ -468,87 +468,92 @@ h1 {
 
 
 
-@media (max-width: 768px) {
+/* ===================== MOBILE RESPONSIVE FIX ===================== */
 
-  html, body {
-    margin: 0;
-    padding: 0;
+@media (max-width: 768px) {
+  
+  /* 1. Prevent overlapping by making the background scrollable if needed */
+  body {
+    overflow-y: auto;
     overflow-x: hidden;
   }
 
-  .scene {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100svh;
-    padding: 7vh 5vw;
+  /* 2. Fix the Moon - make it smaller so it doesn't take over the screen */
+  .moon {
+    width: 80px;
+    height: 80px;
+    top: 20px;
+    right: 20px;
   }
 
-  /* Kill desktop positioning */
-  .content,
-  #ageCounter,
-  #ageIntro {
-    position: static !important;
-    transform: none !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    top: auto !important;
-    width: 100%;
+  /* 3. The Glass Card - Change from 760px to a flexible percentage */
+  #glass-card {
+    width: 85%; /* Uses 85% of phone width */
+    min-height: auto;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
+  h1 {
+    font-size: 32px; /* Shrink title so it doesn't wrap weirdly */
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  /* 4. Fix Positioning - Move from "fixed" to "relative" so they stack naturally */
   .content {
+    position: relative;
+    top: 100px; /* Space below the moon */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    padding-bottom: 50px;
   }
-
-  #glass-card {
-    width: 100%;
-    max-width: 92vw;
-    margin: 0 auto;
-    padding: 18px;
-    box-sizing: border-box;
-  }
-
-  h1 { font-size: 40px; }
-  p  { font-size: 17px; }
 
   #ageIntro {
-    text-align: center;
-    font-size: 16px;
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    font-size: 20px;
+    margin-top: 30px;
   }
 
+  /* 5. Age Counter - Wrap into 2 or 3 rows instead of one long line */
   #ageCounter {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
     display: flex;
-    justify-content: space-between;
-    gap: 8px;
+    flex-wrap: wrap; /* Allows cards to drop to next line */
+    gap: 10px;
+    width: 90%;
+    margin-top: 10px;
   }
 
   .ageBox {
-    flex: 1;
-    min-width: 0;
-    padding: 10px 6px;
+    flex: 1 1 25%; /* Grows to fill space, but keeps cards small */
+    min-width: 70px;
+    padding: 10px 5px;
   }
 
-  .ageNum { font-size: 20px; }
-  .ageBox span { font-size: 10px; }
+  .ageNum {
+    font-size: 20px;
+  }
 
-  /* Moon fix */
-  .moon {
-    width: 90px;
-    height: 90px;
-    top: 16px;
-    right: 16px;
+  .ageBox span {
+    font-size: 10px;
+  }
+
+  /* 6. Adjust Popup position for mobile */
+  #wishPopup {
+    top: 40%;
+    width: 80%;
+    text-align: center;
   }
 }
-
-
-
-
-
-
-

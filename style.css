@@ -68,25 +68,25 @@ p {
 
 .heart {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: hotpink;
   transform: rotate(45deg);
-  animation: float 10s linear infinite;
+  animation: float 20s linear infinite;
 }
 
 .heart::before,
 .heart::after {
   content: '';
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: hotpink;
   border-radius: 50%;
 }
 
-.heart::before { left: -7px; }
-.heart::after { top: -7px; }
+.heart::before { left: -10px; }
+.heart::after { top: -10px; }
 
 @keyframes float {
   from { transform: translateY(100vh) rotate(45deg); }
@@ -463,6 +463,9 @@ h1 {
 .stars, .hearts {
   transition: transform 0.12s linear;
 }
+
+
+
 
 
 

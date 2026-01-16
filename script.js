@@ -48,7 +48,7 @@ function spawnHeart(startRandomHeight = false) {
   h.style.left = Math.random() * 100 + "vw";
   h.style.bottom = startRandomHeight ? Math.random() * 100 + "vh" : "-20px";
   heartsBox.appendChild(h);
-  setTimeout(() => h.remove(), 12000);
+  setTimeout(() => h.remove(), 22000);
 }
 
 // ========== SHOOTING STARS ==========
